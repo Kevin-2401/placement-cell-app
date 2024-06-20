@@ -1,0 +1,22 @@
+<%- include('../layouts/layout') %>
+<h1>Allocate Student to Interview</h1>
+<form action="/interviews/allocate" method="POST">
+    <div class="form-group">
+        <label for="studentId">Student:</label>
+        <select name="studentId" class="form-control" required>
+            <% students.forEach(student => { %>
+                <option value="<%= student._id %>"><%= student.name %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="interviewId">Interview:</label>
+        <select name="interviewId" class="form-control" required>
+            <% interviews.forEach(interview => { %>
+                <option value="<%= interview._id %>"><%= interview.company %> - <%= new Date(interview.date).toLocaleDateString() %></option>
+            <% }) %>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Allocate</button>
+</form>
+<%- include('../includes/footer') %>

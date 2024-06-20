@@ -1,0 +1,29 @@
+<%- include('../layouts/layout') %>
+<h1>Interviews</h1>
+<a href="/interviews/new" class="btn btn-primary">Create Interview</a>
+<a href="/interviews/allocate" class="btn btn-secondary">Allocate Student</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Date</th>
+            <th>Students</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% interviews.forEach(interview => { %>
+            <tr>
+                <td><%= interview.company %></td>
+                <td><%= new Date(interview.date).toLocaleDateString() %></td>
+                <td>
+                    <ul>
+                        <% interview.students.forEach(student => { %>
+                            <li><%= student.name %></li>
+                        <% }) %>
+                    </ul>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<%- include('../includes/footer') %>

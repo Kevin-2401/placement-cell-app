@@ -1,0 +1,23 @@
+<%- include('layouts/layout') %>
+<h1>External Jobs</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Apply</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% jobs.forEach(job => { %>
+            <tr>
+                <td><%= job.title %></td>
+                <td><%= job.company %></td>
+                <td><%= job.location %></td>
+                <td><a href="<%= job.url %>" target="_blank">Apply</a></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<%- include('includes/footer') %>

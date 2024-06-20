@@ -1,0 +1,28 @@
+<%- include('../layouts/layout') %>
+<h1>Students</h1>
+<a href="/students/new" class="btn btn-primary">Add Student</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>College</th>
+            <th>Status</th>
+            <th>DSA Score</th>
+            <th>WebD Score</th>
+            <th>React Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% students.forEach(student => { %>
+            <tr>
+                <td><%= student.name %></td>
+                <td><%= student.college %></td>
+                <td><%= student.status %></td>
+                <td><%= student.dsaScore %></td>
+                <td><%= student.webDScore %></td>
+                <td><%= student.reactScore %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<%- include('../includes/footer') %>
